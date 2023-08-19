@@ -9,31 +9,13 @@
   <body>
     <div id="root">
       <h1>Hello World</h1>
+      <!-- This h1 tag is getting overridden by app.js in root.render method -->
     </div>
   </body>
 
   <!-- 
-    This is the most basic way to create an webapp with react.
-    First link is of react & second is of react dom.
-    This is not the best way to use react as 
-    i - React version will change 
-    ii - we have to constantly reach out to rcdn links so it will take time to do these network calls & fetch data. 
+    if we are giving import statements in app.js we have to add type attribute to script tag.
+    This indicates that we are fetching javascript module.
    -->
-  <script
-    crossorigin
-    src="https://unpkg.com/react@18/umd/react.development.js"
-  ></script>
-  <script
-    crossorigin
-    src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-  ></script>
-  <script src="./App.js"></script>
+  <script type="module" src="./App.js"></script>
 </html>
-
-<!--
-   Remenber js is asynchronus language but basic nature of js is synchronus.
-  so this script tags should be always in order 
-  1st - react 
-  2nd - react-dom
-  3rd - app.js which contains react code.
--->
