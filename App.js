@@ -1,13 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const parent = React.createElement("div", { id: "parent" }, [
-  React.createElement("h1", {}, "This is react"),
-  React.createElement("h2", {}, "by hrushikesh"),
-]);
+const Title = () => (
+  <h1 className="head" tabIndex="5">
+    Welcome using JSX
+  </h1>
+);
 
-// createroot is an API which was given by ReactDOM.
+const HeadingComponent = () => (
+  // Using react fragments here.
+  <>
+    <div className="container">
+      <Title />
+      <h1 className="heading">Functional component</h1>
+      <div className="container1"></div>
+    </div>
+  </>
+);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-//this is how we render an element
-root.render(parent);
+root.render(<HeadingComponent />);
