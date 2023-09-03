@@ -55,3 +55,23 @@ width: 150px;
     margin: 10px;
     cursor: pointer;
 }
+
+.shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer-card{
+    margin: 20px;
+    width: 200px;
+    height: 350px;
+    background-color: #f0f0f0;
+}
+
+.login{
+    cursor: pointer;
+    width: 100px;
+}
+
+.filter{
+    display: flex;
+}
