@@ -36,18 +36,20 @@ const Body = () => {
   return listOfRestaurants?.length == 0 ? (
     <Shimmer />
   ) : (
-    <div className="body">
+    <div className="p-5 bg-pink-50 text-center">
       <div className="filter">
         <div className="search">
           <input
             type="text"
-            className="search-box"
+            className="focus:bg-rose-200 p-2 m-2 w-96"
+            placeholder="search"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
+            className="p-2 m-2 bg-red-500 hover:bg-red-800 text-white rounded-md "
             onClick={() => {
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
@@ -59,7 +61,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="filter-btn"
+          className="p-2 m-2 bg-red-500 hover:bg-red-800 text-white rounded-md "
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4.2
@@ -71,7 +73,7 @@ const Body = () => {
         </button>{" "}
       </div>
 
-      <div className="res-container">
+      <div className="flex flex-wrap justify-center bg-pink-50">
         {/* map over filteredRestaurants variable as first time in the variable both filteredRestaurants & listOfRestaurants are same but if we filtered it for any result then it should render the filtered results*/}
         {filteredRestaurants?.map((restaurant) => (
           <Link
