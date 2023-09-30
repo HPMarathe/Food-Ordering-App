@@ -3,7 +3,7 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props.name + "Child Constructor");
+    // console.log(this.props.name + "Child Constructor");
     this.state = {
       userInfo: {
         name: "Dummy",
@@ -22,15 +22,15 @@ class UserClass extends React.Component {
     });
   }
   componentDidUpdate() {
-    console.log("Component Did Update");
+    // console.log("Component Did Update");
   }
 
   componentWillUnmount() {
-    console.log("Component Will Unmount");
+    // console.log("Component Will Unmount");
   }
 
   render() {
-    console.log(this.props.name + "Child render");
+    // console.log(this.props.name + "Child render");
 
     const { login, avatar_url } = this.state.userInfo;
     return (
