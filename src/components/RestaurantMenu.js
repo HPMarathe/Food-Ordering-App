@@ -21,11 +21,11 @@ const RestaurantMenu = () => {
         c.card.card?.["@type"] ==
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  // console.log(categories);
+  console.log(resInfo);
 
   return (
-    <div className="text-center ">
-      <h1 className="font-bold my-6 text-2xl">{name}</h1>
+    <div className="text-center min-h-screen bg-pink-50 ">
+      <h1 className="font-bold py-6 text-2xl">{name}</h1>
       <p className="font-bold text-lg">
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>

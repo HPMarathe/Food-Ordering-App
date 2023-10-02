@@ -1,13 +1,14 @@
 import React from "react";
 import { CDN_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
-import { addItem } from "../utils/cartSlice";
+import { deleteItem } from "../utils/cartSlice";
 
-const ItemList = ({ items }) => {
+const CartItem = ({ items }) => {
   const dispatch = useDispatch();
-  const handleAddItem = (item) => {
-    dispatch(addItem(item));
+  const handleDeleteItem = (item) => {
+    dispatch(deleteItem(item));
   };
+
   return (
     <div>
       {items.map((item) => (
@@ -32,10 +33,9 @@ const ItemList = ({ items }) => {
             <div className="absolute">
               <button
                 className="mx-12 p-1 bg-red-700 text-white shadow-lg rounded-lg"
-                // onClick={handleAddItem}
-                onClick={() => handleAddItem(item)}
+                onClick={() => handleDeleteItem(item)}
               >
-                Add+
+                Delete -
               </button>
             </div>
             <img
@@ -50,4 +50,4 @@ const ItemList = ({ items }) => {
   );
 };
 
-export default ItemList;
+export default CartItem;

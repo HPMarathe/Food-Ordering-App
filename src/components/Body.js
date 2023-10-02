@@ -35,12 +35,12 @@ const Body = () => {
   return listOfRestaurants?.length == 0 ? (
     <Shimmer />
   ) : (
-    <div className="p-5 bg-pink-50 text-center">
-      <div className="filter">
-        <div className="search">
+    <div className="p-5 bg-pink-50 text-center  ">
+      <div className="flex justify-between p-4 mx-6">
+        <div className="">
           <input
             type="text"
-            className="focus:bg-rose-200 p-2 m-2 w-96"
+            className="focus:bg-rose-200 p-2 m-2 w-96 border border-gray-400 rounded-md"
             placeholder="search"
             value={searchText}
             onChange={(e) => {
