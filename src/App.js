@@ -12,6 +12,7 @@ import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import Cart from "./components/Cart";
 import UserContext from "./utils/UserContext";
+import Login from "./components/Login";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
@@ -20,20 +21,20 @@ const AppLayout = () => {
   //authentication
   useEffect(() => {
     const data = {
-      name: "Hrushikesh Marathe",
+      name: "Hrushi",
     };
     setUserName(data.name);
   }, []);
 
   return (
-    <UserContext.Provider value={{ loggedInUser: userName }}>
-      {" "}
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
       <Provider store={appStore}>
-        <div className="w-full no-scrollbar">
+        <div class="no-scrollbar">
           <Header />
           <Outlet />
         </div>
       </Provider>
+      //{" "}
     </UserContext.Provider>
   );
 };
@@ -73,6 +74,10 @@ const appRouter = createBrowserRouter([
         element: <Cart />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

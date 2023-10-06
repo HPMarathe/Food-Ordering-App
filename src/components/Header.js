@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { useSelector } from "react-redux";
 import UserContext from "../utils/UserContext";
+import Login from "./Login";
 
 const Header = () => {
   const [loginBtn, setLoginBtn] = useState("login");
+  const [userName, setUserName] = useState("user");
 
   const onlineStatus = useOnlineStatus();
 
@@ -38,17 +40,21 @@ const Header = () => {
           <li className="px-2  text-white hover:text-black hover:bg-white active:bg-red-700 active:text-white rounded-2xl font-bold">
             <Link to="/cart"> Cart - ({cartItems.length} items)</Link>
           </li>
-          <button
-            className="px-2 w-16  text-white hover:text-black hover:bg-white active:bg-red-700 active:text-white rounded-2xl font-bold"
-            onClick={() => {
-              loginBtn == "login"
-                ? setLoginBtn("logout")
-                : setLoginBtn("login");
-            }}
-          >
-            {loginBtn}
-          </button>
-          <li className="font-bold">{loggedInUser}</li>
+          <Link to="/login">
+            <button
+              className="px-2 w-16  text-white hover:text-black hover:bg-white active:bg-red-700 active:text-white rounded-2xl font-bold"
+              onClick={() => {
+                loginBtn == "login"
+                  ? setLoginBtn("logout")
+                  : setLoginBtn("login");
+              }}
+            >
+              {loginBtn}
+            </button>
+          </Link>
+          <li className="px-2  text-white rounded-2xl  font-bold">
+            welcome ,{userName}
+          </li>
         </ul>
       </div>
     </div>

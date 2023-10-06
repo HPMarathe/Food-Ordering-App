@@ -1,10 +1,10 @@
-// import { useContext } from "react";
+import React, { useContext } from "react";
 import { CDN_URL } from "../utils/constants";
-// import UserContext from "../utils/UserContext";
-
+import UserContext from "../utils/UserContext";
+React;
 const RestaurantCard = (props) => {
   const { resData } = props;
-  // const { loggedInUser } = useContext(UserContext);
+  const { loggedInUser } = useContext(UserContext);
   const { name, cuisines, costForTwo, avgRating, cloudinaryImageId } =
     resData?.info;
   // console.log(props);
@@ -19,7 +19,7 @@ const RestaurantCard = (props) => {
       <p className="line-clamp-1">{cuisines.join(", ")}</p>
       <h4>{costForTwo}</h4>
       <h4>{avgRating}</h4>
-      {/* <h4>User: {loggedInUser}</h4> */}
+      <h4>User: {loggedInUser}</h4>
     </div>
   );
 };

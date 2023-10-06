@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
@@ -7,6 +7,8 @@ import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
   const { resid } = useParams();
   const resInfo = useRestaurantMenu(resid);
+
+  const [showIndex, setShowIndex] = useState(null);
 
   if (resInfo === null) return <Shimmer />;
   const { name, cuisines, costForTwoMessage, cloudinaryImageId } =
@@ -30,10 +32,13 @@ const RestaurantMenu = () => {
         {cuisines.join(", ")} - {costForTwoMessage}
       </p>
       {/* Categories accordian */}
-      {categories.map((category) => (
+      {categories.map((category, index) => (
         <RestaurantCategory
           key={category.card.card.title}
           data={category.card.card}
+          showIndex={index == showIndex ? true : false}
+          // setShowIndex={setShowIndex(index)} this will not work.check why
+          setShowIndex={() => setShowIndex(index)}
         />
       ))}
     </div>

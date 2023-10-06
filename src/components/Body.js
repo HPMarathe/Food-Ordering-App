@@ -1,14 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
-
+  // const { loggedInUser, setUserName } = useContext(UserContext);
   useEffect(() => {
     fetchData();
   }, []);
@@ -30,7 +31,13 @@ const Body = () => {
 
   const onlinesttatus = useOnlineStatus();
 
-  if (onlinesttatus === false) return <h1> You are offline</h1>;
+  if (onlinesttatus === false)
+    return (
+      <div className="text-center p-2 m-2 ">
+        <h1 className="font-bold "> You are offline</h1>
+        <p className="font-medium">Please check your internet connection</p>
+      </div>
+    );
 
   return listOfRestaurants?.length == 0 ? (
     <Shimmer />
@@ -47,8 +54,17 @@ const Body = () => {
               setSearchText(e.target.value);
             }}
           />
+          {/* <div className="search m-4 p-4 flex items-center">
+            <label>UserName : </label>
+            <input
+              className="border border-black p-2"
+              value={loggedInUser}
+              onChange={(e) => setUserName(e.target.value)}
+            />
+          </div> */}
           <button
-            className="p-2 m-2 bg-red-500 hover:bg-red-800 text-white rounded-md "
+            // className="p-2 m-2 bg-red-500 hover:bg-red-800 text-white rounded-md "
+            className="border-2 border-red-500 bg-red-500 text-white p-2 m-2 rounded-md hover:bg-transparent hover:text-red-800 font-semibold "
             onClick={() => {
               const filteredRestaurant = listOfRestaurants.filter((res) =>
                 res?.info?.name.toLowerCase().includes(searchText.toLowerCase())
@@ -60,7 +76,7 @@ const Body = () => {
           </button>
         </div>
         <button
-          className="p-2 m-2 bg-red-500 hover:bg-red-800 text-white rounded-md "
+          className="border-2 border-red-500 bg-red-500 text-white p-2 m-2 rounded-md hover:bg-transparent hover:text-red-800 font-semibold"
           onClick={() => {
             const filteredList = listOfRestaurants.filter(
               (res) => res.info.avgRating > 4.2
