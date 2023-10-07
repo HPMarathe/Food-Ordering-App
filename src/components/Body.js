@@ -43,13 +43,14 @@ const Body = () => {
     <Shimmer />
   ) : (
     <div className="bg-pink-50 text-center min-h-screen">
-      <div className="p-5  w-full m-auto">
+      <div className="p-5 w-full m-auto">
         <div className="flex justify-between p-4 mx-6 ">
           <div className="">
             <input
               type="text"
               className="focus:bg-rose-200 p-2 m-2 w-96 border border-gray-400 rounded-md "
-              placeholder="search"
+              placeholder="Search for restaurants and food
+              "
               value={searchText}
               onChange={(e) => {
                 setSearchText(e.target.value);

@@ -18,9 +18,11 @@ const Header = () => {
   const cartItems = useSelector((store) => store.cart.items);
   // console.log(cartItems);
   return (
-    <div className="flex justify-between bg-red-500 shadow-lg">
-      <div className="logo-container mx-4 px-6">
-        <img className="h-28 p-2" src={LOGO_URL} alt="" />
+    <div className=" max-w-full flex justify-between bg-red-500 shadow-lg">
+      <div className=" mx-4 px-6 ">
+        <a href="/">
+          <img className="h-28 p-2" src={LOGO_URL} alt="" href="/" />
+        </a>
       </div>
       <div className=" py-11 mx-4 px-6">
         <ul className="flex">
