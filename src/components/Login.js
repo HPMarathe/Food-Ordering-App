@@ -53,7 +53,7 @@ const Login = () => {
         </h1>
         <hr className="mt-3" />
         <div className="mt-3">
-          <label for="username" className="block text-base mb-2">
+          <label htmlFor="username" className="block text-base mb-2">
             Username
           </label>
           <input
@@ -66,7 +66,7 @@ const Login = () => {
           />
         </div>
         <div className="mb-2">
-          <label for="password" className="block text-base mb-2">
+          <label htmlFor="password" className="block text-base mb-2">
             Password
           </label>
           <input

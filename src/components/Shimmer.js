@@ -1,4 +1,5 @@
 import React from "react";
+
 const Trial = () => {
   return (
     <div className="w-72 h-80 m-4 p-4 shadow-lg rounded-xl bg-rose-200">
@@ -10,7 +11,6 @@ const Trial = () => {
     </div>
   );
 };
-
 const Shimmer = () => {
   return (
     <div className="flex flex-wrap justify-center min-h-screen bg-pink-50">

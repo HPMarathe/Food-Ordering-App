@@ -8,12 +8,12 @@ const CartItem = ({ items }) => {
   const handleDeleteItem = (item) => {
     dispatch(deleteItem(item));
   };
-
+  // console.log(items);
   return (
     <div>
-      {items.map((item) => (
+      {items.map((item, index) => (
         <div
-          key={item.card.info.id}
+          key={index}
           className="p-2 m-2 border-gray-200 border-b-2 text-left flex justify-between"
         >
           <div className="w-9/12">
@@ -32,7 +32,7 @@ const CartItem = ({ items }) => {
           <div className="w-3/12 p-4">
             <div className="absolute">
               <button
-                className="mx-12 p-1 bg-red-700 text-white shadow-lg rounded-lg"
+                className="mx-12 p-1 bg-red-700 text-white shadow-lg rounded-lg hover:bg-white hover:text-red-800 font-semibold border border-red-500 "
                 onClick={() => handleDeleteItem(item)}
               >
                 Delete -

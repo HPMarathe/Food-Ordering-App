@@ -19,7 +19,7 @@ const Cart = () => {
           {" "}
           <h1 className="text-2xl font-bold py-2">Cart</h1>
           <button
-            className="text-white bg-red-600 rounded-lg p-2 m-2"
+            className="text-white bg-red-600 rounded-lg p-2 m-2 hover:bg-transparent hover:text-red-800 font-semibold border border-red-500"
             onClick={handleClearCart}
           >
             Clear cart
@@ -44,7 +44,7 @@ const Cart = () => {
             </p>
             <Link
               to="/"
-              className="text-white bg-red-600 py-2 px-4   text-transform: uppercase font-semibold rounded-3xl "
+              className="text-white bg-red-600 py-2 px-4   text-transform: uppercase font-semibold rounded-3xl hover:bg-transparent hover:text-red-800 border border-red-500 "
             >
               See Restaurants near you
             </Link>

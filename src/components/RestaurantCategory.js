@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import ItemList from "./ItemList";
 
 //building for according section in menu.
-const RestaurantCategory = ({ data, showIndex, setShowIndex }) => {
+const RestaurantCategory = ({ data, showItems, setShowIndex, index }) => {
   //controlled component - When component dont have its own state
 
   const handleClick = () => {
-    setShowIndex();
-    // setShowIndex == true ? (setShowIndex = false) : (setShowIndex = true);
+    if (showItems === true) {
+      setShowIndex(null);
+    } else {
+      setShowIndex(index);
+    }
   };
   return (
     <div>
@@ -23,7 +26,7 @@ const RestaurantCategory = ({ data, showIndex, setShowIndex }) => {
           <span>🔽</span>
         </div>
         {/* Accordian Body  */}
-        {showIndex && <ItemList items={data.itemCards} />}
+        {showItems && <ItemList items={data.itemCards} />}
       </div>
     </div>
   );

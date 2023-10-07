@@ -3,6 +3,7 @@ import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
+import ShimmerList from "./ShimmerList";
 
 const RestaurantMenu = () => {
   const { resid } = useParams();
@@ -10,7 +11,7 @@ const RestaurantMenu = () => {
 
   const [showIndex, setShowIndex] = useState(null);
 
-  if (resInfo === null) return <Shimmer />;
+  if (resInfo === null) return <ShimmerList />;
   const { name, cuisines, costForTwoMessage, cloudinaryImageId } =
     resInfo?.cards[0]?.card?.card?.info;
 
@@ -23,7 +24,7 @@ const RestaurantMenu = () => {
         c.card.card?.["@type"] ==
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
-  console.log(resInfo);
+  // console.log(resInfo);
 
   return (
     <div className="text-center min-h-screen bg-pink-50 ">
@@ -36,9 +37,10 @@ const RestaurantMenu = () => {
         <RestaurantCategory
           key={category.card.card.title}
           data={category.card.card}
-          showIndex={index == showIndex ? true : false}
+          showItems={index == showIndex ? true : false}
           // setShowIndex={setShowIndex(index)} this will not work.check why
-          setShowIndex={() => setShowIndex(index)}
+          setShowIndex={setShowIndex}
+          index={index}
         />
       ))}
     </div>
