@@ -17,6 +17,7 @@ import Footer from "./components/Footer";
 import Shimmer from "./components/Shimmer";
 const Grocery = lazy(() => import("./components/Grocery"));
 // const About = lazy(() => import("./components/About"));
+
 const AppLayout = () => {
   const [userName, setUserName] = useState();
   //authentication
@@ -75,7 +76,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/grocery",
         element: (
-          <Suspense fallback={<h1>Loading ....</h1>}>
+          <Suspense fallback={<Shimmer />}>
             <Grocery />
           </Suspense>
         ),
