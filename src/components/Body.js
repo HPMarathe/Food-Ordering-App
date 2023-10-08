@@ -39,6 +39,13 @@ const Body = () => {
       </div>
     );
 
+  const searchData = (searchText) => {
+    const filteredRestaurant = listOfRestaurants.filter((res) =>
+      res?.info?.name?.toLowerCase().includes(searchText?.toLowerCase())
+    );
+    setFilteredRestaurants(filteredRestaurant);
+  };
+
   return listOfRestaurants?.length == 0 ? (
     <Shimmer />
   ) : (
@@ -53,26 +60,16 @@ const Body = () => {
               "
               value={searchText}
               onChange={(e) => {
+                // update the state variable searchText when we typing in input box
                 setSearchText(e.target.value);
+                // when user will enter the data, it automatically called searchData function so it work same as when you click on Search button
+                searchData(e.target.value);
               }}
             />
-            {/* <div className="search m-4 p-4 flex items-center">
-            <label>UserName : </label>
-            <input
-              className="border border-black p-2"
-              value={loggedInUser}
-              onChange={(e) => setUserName(e.target.value)}
-            />
-          </div> */}
             <button
               className="border-2 border-red-500 bg-red-500 text-white p-2 m-2 rounded-md hover:bg-transparent hover:text-red-800 font-semibold "
               onClick={() => {
-                const filteredRestaurant = listOfRestaurants.filter((res) =>
-                  res?.info?.name
-                    .toLowerCase()
-                    .includes(searchText.toLowerCase())
-                );
-                setFilteredRestaurants(filteredRestaurant);
+                searchData(searchText);
               }}
             >
               Search
